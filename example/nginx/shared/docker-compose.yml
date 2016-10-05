@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx:1.11
+    volumes:
+      - ${PWD}/mysite.template:/etc/nginx/conf.d/mysite.template
+    ports:
+      - "0.0.0.0:18080:80"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80

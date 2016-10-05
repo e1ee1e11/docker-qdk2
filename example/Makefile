@@ -1,5 +1,5 @@
 
-all: gitlab redmine joomla
+all: gitlab redmine joomla nginx
 
 gitlab:
 	cd gitlab && /usr/share/qdk2/QDK/bin/qbuild --build-dir build
@@ -10,8 +10,10 @@ redmine:
 joomla:
 	cd joomla && fakeroot /usr/share/qdk2/QDK/bin/qbuild --build-dir build
 
+nginx:
+	cd nginx && fakeroot /usr/share/qdk2/QDK/bin/qbuild --build-dir build
 
 clean:
 	sudo rm -f */build/*.qpkg
 
-.PHONY: all clean gitlab redmine joomla
+.PHONY: all clean gitlab redmine joomla nginx
